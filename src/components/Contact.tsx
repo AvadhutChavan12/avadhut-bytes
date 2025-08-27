@@ -36,8 +36,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      content: 'avadhut.chavan@example.com',
-      href: 'mailto:avadhut.chavan@example.com'
+      content: 'avadhut.chavan23@pccoepune.org',
+      href: 'mailto:avadhut.chavan23@pccoepune.org'
     },
     {
       icon: Phone,
@@ -69,7 +69,7 @@ const Contact = () => {
     {
       icon: Mail,
       name: 'Email',
-      href: 'mailto:avadhut.chavan@example.com',
+      href: 'mailto:avadhut.chavan23@pccoepune.org',
       color: 'hover:text-red-600'
     }
   ];

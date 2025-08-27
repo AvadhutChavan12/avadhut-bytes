@@ -1,25 +1,20 @@
 import { ArrowDown, Download, Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-const profileImage = '/lovable-uploads/0bb59d3c-085e-405d-8db0-f7dafe953c94.png';
-
+import profileImage from '@/assets/profile-image.jpg';
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-
-  return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-16 bg-hero-gradient">
+  return <section id="home" className="min-h-screen flex items-center justify-center pt-16 bg-hero-gradient">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center animate-fade-in">
           <div className="mb-8">
-            <img
-              src={profileImage}
-              alt="Avadhut Chavan"
-              className="w-48 h-48 rounded-full mx-auto shadow-glow object-cover animate-float"
-            />
+            <img src={profileImage} alt="Avadhut Chavan" className="w-48 h-48 rounded-full mx-auto shadow-glow object-cover animate-float" />
           </div>
           
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4">
@@ -37,62 +32,30 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <Button 
-              size="lg" 
-              className="bg-primary hover:bg-primary/90 shadow-soft"
-              onClick={() => scrollToSection('contact')}
-            >
-              <Mail className="mr-2 h-5 w-5" />
-              Get In Touch
-            </Button>
             
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground shadow-soft"
-            >
-              <Download className="mr-2 h-5 w-5" />
-              Download CV
-            </Button>
+            
+            
           </div>
 
           <div className="flex items-center justify-center space-x-6">
-            <a
-              href="https://linkedin.com/in/avadhut-chavan"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors duration-200"
-            >
+            <a href="https://linkedin.com/in/avadhut-chavan" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors duration-200">
               <Linkedin className="h-6 w-6" />
             </a>
-            <a
-              href="https://github.com/avadhut-chavan"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors duration-200"
-            >
-              <Github className="h-6 w-6" />
+            <a href="https://github.com/avadhut-chavan" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors duration-200">
+              
             </a>
-            <a
-              href="mailto:avadhut.chavan@example.com"
-              className="text-muted-foreground hover:text-primary transition-colors duration-200"
-            >
+            <a href="mailto:avadhut.chavan@example.com" className="text-muted-foreground hover:text-primary transition-colors duration-200">
               <Mail className="h-6 w-6" />
             </a>
           </div>
 
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <button
-              onClick={() => scrollToSection('about')}
-              className="text-muted-foreground hover:text-primary transition-colors duration-200"
-            >
+            <button onClick={() => scrollToSection('about')} className="text-muted-foreground hover:text-primary transition-colors duration-200">
               <ArrowDown className="h-6 w-6" />
             </button>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;

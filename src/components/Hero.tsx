@@ -1,6 +1,5 @@
 import { ArrowDown, Download, Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import profileImage from '@/assets/avadhut-profile.jpeg';
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -14,7 +13,7 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center animate-fade-in">
           <div className="mb-8">
-            <img src={profileImage} alt="Avadhut Chavan" className="w-48 h-48 rounded-full mx-auto shadow-glow object-cover animate-float" />
+            <img src="https://avdhut-image.s3.eu-north-1.amazonaws.com/avdhut-image.jpeg" alt="Avadhut Chavan" className="w-48 h-48 rounded-full mx-auto shadow-glow object-cover animate-float" />
           </div>
           
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4">
@@ -42,9 +41,9 @@ const Hero = () => {
               <Linkedin className="h-6 w-6" />
             </a>
             <a href="https://github.com/avadhut-chavan" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors duration-200">
-              
+              <Github className="h-6 w-6" />
             </a>
-            <a href="mailto:avadhut.chavan@example.com" className="text-muted-foreground hover:text-primary transition-colors duration-200">
+            <a href="mailto:avadhut.chavan23@pccoepune.org" className="text-muted-foreground hover:text-primary transition-colors duration-200">
               <Mail className="h-6 w-6" />
             </a>
           </div>

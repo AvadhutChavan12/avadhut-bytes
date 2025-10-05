@@ -4,13 +4,17 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { MessageSquare, Send } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const Feedback = () => {
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     mobile: '',
+    subject: '',
+    foundVia: '',
     suggestions: ''
   });
   const { toast } = useToast();
@@ -22,13 +26,20 @@ const Feedback = () => {
     });
   };
 
+  const handleSelectChange = (value: string) => {
+    setFormData({
+      ...formData,
+      foundVia: value
+    });
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
       title: "Feedback Submitted!",
       description: "Thank you for your valuable feedback!",
     });
-    setFormData({ name: '', mobile: '', suggestions: '' });
+    setFormData({ name: '', email: '', mobile: '', subject: '', foundVia: '', suggestions: '' });
   };
 
   return (
@@ -57,39 +68,88 @@ const Feedback = () => {
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Name *</Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Your Name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email Address *</Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="your.email@example.com"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="mobile">Mobile Number *</Label>
+                  <Input
+                    id="mobile"
+                    name="mobile"
+                    type="tel"
+                    placeholder="+91 XXXXX XXXXX"
+                    value={formData.mobile}
+                    onChange={handleInputChange}
+                    pattern="[0-9+\s\-()]+"
+                    required
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="foundVia">How did you find this portfolio? *</Label>
+                  <Select value={formData.foundVia} onValueChange={handleSelectChange} required>
+                    <SelectTrigger id="foundVia">
+                      <SelectValue placeholder="Select an option" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="google">Google Search</SelectItem>
+                      <SelectItem value="linkedin">LinkedIn</SelectItem>
+                      <SelectItem value="github">GitHub</SelectItem>
+                      <SelectItem value="referral">Referral from Friend/Colleague</SelectItem>
+                      <SelectItem value="social-media">Social Media</SelectItem>
+                      <SelectItem value="job-portal">Job Portal</SelectItem>
+                      <SelectItem value="college">College/University</SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+              
               <div className="space-y-2">
-                <Label htmlFor="name">Name *</Label>
+                <Label htmlFor="subject">Subject/Title *</Label>
                 <Input
-                  id="name"
-                  name="name"
+                  id="subject"
+                  name="subject"
                   type="text"
-                  placeholder="Your Name"
-                  value={formData.name}
+                  placeholder="Brief title for your feedback"
+                  value={formData.subject}
                   onChange={handleInputChange}
                   required
                 />
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="mobile">Mobile Number *</Label>
-                <Input
-                  id="mobile"
-                  name="mobile"
-                  type="tel"
-                  placeholder="+91 XXXXX XXXXX"
-                  value={formData.mobile}
-                  onChange={handleInputChange}
-                  pattern="[0-9+\s\-()]+"
-                  required
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="suggestions">Suggestions *</Label>
+                <Label htmlFor="suggestions">Suggestions/Feedback *</Label>
                 <Textarea
                   id="suggestions"
                   name="suggestions"
-                  placeholder="Share your suggestions or feedback..."
+                  placeholder="Share your detailed suggestions or feedback..."
                   rows={6}
                   value={formData.suggestions}
                   onChange={handleInputChange}

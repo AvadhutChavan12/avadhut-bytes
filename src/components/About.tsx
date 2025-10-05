@@ -41,8 +41,8 @@ const About = () => {
               Passionate Problem Solver & Technology Enthusiast
             </h3>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              I am a final-year Computer Engineering student at Bharati Vidyapeeth's College of Engineering 
-              for Women, Pune, with a strong passion for technology and innovation. My journey in computer 
+              I am a final-year Computer Engineering student at Pimpri Chinchwad College of Engineering, 
+              Pune, with a strong passion for technology and innovation. My journey in computer 
               engineering has been driven by curiosity and a desire to create meaningful solutions.
             </p>
             <p className="text-muted-foreground mb-6 leading-relaxed">
